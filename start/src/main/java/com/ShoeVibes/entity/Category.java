@@ -1,8 +1,6 @@
 package com.ShoeVibes.entity;
 
-
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -14,7 +12,8 @@ public class Category {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")  // mappedBy yerine JoinColumn kullanıldı
     private List<Product> products;
 
     public Category() {
