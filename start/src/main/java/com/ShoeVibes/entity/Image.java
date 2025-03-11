@@ -2,6 +2,7 @@ package com.ShoeVibes.entity;
 
 import jakarta.persistence.*;
 
+
 @Entity
 public class Image {
     @Id

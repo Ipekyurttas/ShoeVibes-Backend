@@ -14,8 +14,14 @@ public class Category {
     private String name;
     private String description;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
+=======
+    @OneToMany
+    @JoinColumn(name = "category_id")  // mappedBy yerine JoinColumn kullanıldı
+    private List<Product> products;
+>>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
 
     public Category() {
     }
