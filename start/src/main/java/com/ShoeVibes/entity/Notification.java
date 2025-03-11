@@ -3,11 +3,12 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "notifications")
-public class Natification {
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,13 +18,15 @@ public class Natification {
 
     private LocalDateTime createdAt;
 
-    @ManyToMany(mappedBy = "notifications")
-    private Set<User> users;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User users;
 
-    public Natification() {
+
+    public Notification() {
     }
 
-    public Natification(Long id, String message, LocalDateTime createdAt, Set<User> users) {
+    public Notification(Long id, String message, LocalDateTime createdAt, User users) {
         this.id = id;
         this.message = message;
         this.createdAt = createdAt;
@@ -54,11 +57,11 @@ public class Natification {
         this.createdAt = createdAt;
     }
 
-    public Set<User> getUsers() {
+    public User getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(User users) {
         this.users = users;
     }
 }

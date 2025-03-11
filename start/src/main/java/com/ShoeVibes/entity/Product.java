@@ -3,6 +3,8 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,6 +26,16 @@ public class Product {
 
     @ManyToMany(mappedBy = "products")
     private Set<Favorite> favorites;
+
+    @OneToMany(mappedBy = "product")
+    private Set<Image> images;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
 
     public Product() {
     }

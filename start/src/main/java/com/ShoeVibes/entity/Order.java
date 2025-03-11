@@ -3,6 +3,9 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="orders")
@@ -14,6 +17,13 @@ public class Order {
     private String address;
     private int totalPrice;
     private LocalDateTime dateTime;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     public Order() {
     }
