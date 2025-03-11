@@ -12,7 +12,7 @@ public class Category {
     private String name;
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     @JoinColumn(name = "category_id")  // mappedBy yerine JoinColumn kullanıldı
     private List<Product> products;
 

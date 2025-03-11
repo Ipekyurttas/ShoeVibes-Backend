@@ -2,16 +2,24 @@ package com.ShoeVibes.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
     private int quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
     public CartItem() {
     }
     public CartItem(Product product, int quantity) {

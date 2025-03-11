@@ -13,17 +13,21 @@ public class Review {
     private String reviewerName;
     private String comment;
     private Integer rating;
+    private LocalDateTime createdAt;
+
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-    private LocalDateTime createdAt;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
+//    @PrePersist
+//    protected void onCreate() {
+//        createdAt = LocalDateTime.now();
+//    }
 
     public Review() {
     }

@@ -20,8 +20,12 @@ public class Cart {
     }
 
     @OneToOne
-    @JoinColumn(name = "user_id", unique = true)
+    @JoinColumn(name = "user_id")
     private User user;
+
+
+    @OneToMany(mappedBy = "cart")
+    private List<CartItem> cartItems;
 
     public Long getId() {
         return id;

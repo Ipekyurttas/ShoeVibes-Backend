@@ -3,6 +3,7 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,10 +26,20 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private Set<Favorite> favorites;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @OneToMany(mappedBy = "product")
+    private List<Image> images;
+
+    @OneToMany(mappedBy = "product")
+    private List<Review> reviews;
+
     public Product() {
     }
 
-    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites) {
+    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -36,6 +47,15 @@ public class Product {
         this.stock = stock;
         this.imageUrl = imageUrl;
         this.favorites = favorites;
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Long getId() {
