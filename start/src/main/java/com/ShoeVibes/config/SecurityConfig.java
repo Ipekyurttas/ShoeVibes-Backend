@@ -68,11 +68,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("*"); // Tüm origin'lere izin verilir.
-        configuration.addAllowedMethod("*"); // Tüm HTTP metodlarına izin verilir.
-        configuration.addAllowedHeader("*"); // Tüm başlıklara izin verilir.
-        configuration.setAllowCredentials(true); // Kimlik doğrulama bilgilerine izin verilir.
-        return request -> configuration; // Her gelen isteğe CORS yapılandırmasını uygular.
+        configuration.addAllowedOrigin("*");
+        configuration.addAllowedMethod("*");
+        configuration.addAllowedHeader("*");
+        configuration.setAllowCredentials(true);
+        return request -> configuration;
     }
 
     @Bean

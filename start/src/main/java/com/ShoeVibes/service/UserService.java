@@ -91,10 +91,7 @@ public class UserService {
     }
 
     public void logout(String token) {
-        // JWT'yi decode et ve geçersiz hale getir
         DecodedJWT decodedJWT = jwtUtil.decodeJWT(token);
-
-        // Eğer JWT geçerliyse, blacklist'e ekle
         if (decodedJWT != null) {
             blacklistedTokens.add(token);
         }
