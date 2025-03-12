@@ -7,7 +7,7 @@ import java.util.Set;
 @Entity
 @Table(name="favorite")
 public class Favorite {
-
+ // bu bir yorum satırıdır...
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
