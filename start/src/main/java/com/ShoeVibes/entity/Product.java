@@ -3,6 +3,11 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+<<<<<<< HEAD
+import java.util.ArrayList;
+=======
+>>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,10 +31,31 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private Set<Favorite> favorites;
 
+<<<<<<< HEAD
+    @OneToMany(mappedBy = "product")
+    private Set<Image> images;
+
+=======
+>>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+<<<<<<< HEAD
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
+=======
+    @OneToMany(mappedBy = "product")
+    private List<Image> images;
+
+    @OneToMany(mappedBy = "product")
+    private List<Review> reviews;
+>>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+
     public Product() {
     }
 
-    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites) {
+    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -37,6 +63,15 @@ public class Product {
         this.stock = stock;
         this.imageUrl = imageUrl;
         this.favorites = favorites;
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Long getId() {

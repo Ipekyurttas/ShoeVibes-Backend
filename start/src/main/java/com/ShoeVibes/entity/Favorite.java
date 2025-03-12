@@ -20,6 +20,7 @@ public class Favorite {
     @JoinTable(name = "favorite_product", joinColumns = @JoinColumn(name = "favorite_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
     private Set<Product> products;
 
+    //private boolean isActive = true;
     public Favorite() {
     }
 

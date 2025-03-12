@@ -2,6 +2,7 @@ package com.ShoeVibes.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 
 @Entity
@@ -14,17 +15,29 @@ public class Review {
     private String reviewerName;
     private String comment;
     private Integer rating;
+    private LocalDateTime createdAt;
+
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-
+<<<<<<< HEAD
     private LocalDateTime createdAt;
+=======
 
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+>>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+
+//    @PrePersist
+//    protected void onCreate() {
+//        createdAt = LocalDateTime.now();
+//    }
 
     public Review() {
     }

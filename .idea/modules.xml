@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ShoeVibes-Backend.iml" filepath="$PROJECT_DIR$/.idea/ShoeVibes-Backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/start/start.iml" filepath="$PROJECT_DIR$/start/start.iml" />
     </modules>
   </component>
 </project>
