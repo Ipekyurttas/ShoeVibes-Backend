@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "favorite")
+@Table(name="favorite")
 public class Favorite {
 
     @Id

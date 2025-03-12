@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "image")
+@Table(name="image")
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
