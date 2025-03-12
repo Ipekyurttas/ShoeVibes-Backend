@@ -24,30 +24,27 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-<<<<<<< HEAD
-    private LocalDateTime createdAt;
-=======
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
-
-//    @PrePersist
-//    protected void onCreate() {
-//        createdAt = LocalDateTime.now();
-//    }
 
     public Review() {
     }
 
-    public Review(Long id, String reviewerName, String comment, Integer rating, Product product, LocalDateTime createdAt) {
+    public Review(Long id, String reviewerName, String comment, Integer rating, LocalDateTime createdAt, User user, Product product) {
         this.id = id;
         this.reviewerName = reviewerName;
         this.comment = comment;
         this.rating = rating;
-        this.product = product;
         this.createdAt = createdAt;
+        this.user = user;
+        this.product = product;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getId() {

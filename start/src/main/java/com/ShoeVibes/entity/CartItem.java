@@ -10,15 +10,6 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-<<<<<<< HEAD
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
-    private int quantity;
-
-    @ManyToOne
-=======
     private int quantity;
 
     @ManyToOne
@@ -26,16 +17,27 @@ public class CartItem {
     private Product product;
 
     @ManyToOne
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
     public CartItem() {
     }
-    public CartItem(Product product, int quantity) {
-        this.product = product;
+
+    public CartItem(Long id, int quantity, Product product, Cart cart) {
+        this.id = id;
         this.quantity = quantity;
+        this.product = product;
+        this.cart = cart;
     }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
     public Long getId() {
         return id;
     }

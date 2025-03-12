@@ -3,10 +3,6 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
 import java.util.List;
 import java.util.Set;
 
@@ -30,31 +26,24 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private Set<Favorite> favorites;
 
-<<<<<<< HEAD
+
     @OneToMany(mappedBy = "product")
     private Set<Image> images;
 
-=======
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-<<<<<<< HEAD
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Review> reviews = new ArrayList<>();
-=======
-    @OneToMany(mappedBy = "product")
-    private List<Image> images;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Review> reviews;
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+
 
     public Product() {
     }
 
-    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites, Category category) {
+    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites, Set<Image> images, Category category, List<Review> reviews) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -62,7 +51,25 @@ public class Product {
         this.stock = stock;
         this.imageUrl = imageUrl;
         this.favorites = favorites;
+        this.images = images;
         this.category = category;
+        this.reviews = reviews;
+    }
+
+    public Set<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Category getCategory() {

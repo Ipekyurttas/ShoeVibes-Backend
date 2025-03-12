@@ -10,11 +10,8 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-<<<<<<< HEAD
     private Order order;
-=======
-    private Order order; // Sipariş ilişkisi
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -25,11 +22,13 @@ public class OrderItem {
     public OrderItem() {
     }
 
-    public OrderItem(Order order, Product product, int quantity) {
+    public OrderItem(Long id, Order order, Product product, int quantity) {
+        this.id = id;
         this.order = order;
         this.product = product;
         this.quantity = quantity;
     }
+
     public Long getId() {
         return id;
     }
