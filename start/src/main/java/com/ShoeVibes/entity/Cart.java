@@ -9,6 +9,8 @@ import java.util.List;
 @Table(name="cart")
 public class Cart {
 
+    // Bu cart entity sınıfıdır.
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
