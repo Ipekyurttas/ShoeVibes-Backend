@@ -2,9 +2,7 @@ package com.ShoeVibes.entity;
 
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name = "order_item")
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,8 +10,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-
-    private Order order; // Sipariş ilişkisi
+    private Order order;
 
 
     @ManyToOne
@@ -25,11 +22,13 @@ public class OrderItem {
     public OrderItem() {
     }
 
-    public OrderItem(Order order, Product product, int quantity) {
+    public OrderItem(Long id, Order order, Product product, int quantity) {
+        this.id = id;
         this.order = order;
         this.product = product;
         this.quantity = quantity;
     }
+
     public Long getId() {
         return id;
     }

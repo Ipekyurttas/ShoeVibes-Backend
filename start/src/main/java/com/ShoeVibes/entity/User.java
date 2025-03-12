@@ -3,7 +3,6 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -31,10 +30,8 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Notification> notifications;
 
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Favorite> favorites;
-
 
     @OneToOne(mappedBy = "user")
     private Cart cart;
@@ -45,7 +42,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String email, String password, LocalDateTime createdAt, Role role, Set<Notification> notifications, Set<Favorite> favorites) {
+    public User(Long id, String firstName, String lastName, String email, String password, LocalDateTime createdAt, Role role, Set<Notification> notifications, Set<Favorite> favorites, Cart cart, List<Review> reviews) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -55,6 +52,8 @@ public class User {
         this.role = role;
         this.notifications = notifications;
         this.favorites = favorites;
+        this.cart = cart;
+        this.reviews = reviews;
     }
 
     public Long getId() {
@@ -63,6 +62,22 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public String getFirstName() {

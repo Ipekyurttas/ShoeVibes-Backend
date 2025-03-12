@@ -2,11 +2,10 @@ package com.ShoeVibes.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-
+import java.util.Set;
 
 
 @Entity
-@Table(name = "reviews")
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +14,7 @@ public class Review {
     private String reviewerName;
     private String comment;
     private Integer rating;
+    private LocalDateTime createdAt;
 
 
     @ManyToOne
@@ -25,24 +25,26 @@ public class Review {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    private LocalDateTime createdAt;
-
-
-//    @PrePersist
-//    protected void onCreate() {
-//        createdAt = LocalDateTime.now();
-//    }
 
     public Review() {
     }
 
-    public Review(Long id, String reviewerName, String comment, Integer rating, Product product, LocalDateTime createdAt) {
+    public Review(Long id, String reviewerName, String comment, Integer rating, LocalDateTime createdAt, User user, Product product) {
         this.id = id;
         this.reviewerName = reviewerName;
         this.comment = comment;
         this.rating = rating;
-        this.product = product;
         this.createdAt = createdAt;
+        this.user = user;
+        this.product = product;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getId() {

@@ -3,13 +3,10 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "products")
 public class Product {
 
     @Id
@@ -33,21 +30,20 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private Set<Image> images;
 
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Review> reviews = new ArrayList<>();
-
-
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Review> reviews;
 
 
     public Product() {
     }
 
-    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites, Category category) {
+    public Product(Long id, String name, String description, BigDecimal price, Integer stock, String imageUrl, Set<Favorite> favorites, Set<Image> images, Category category, List<Review> reviews) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -55,7 +51,25 @@ public class Product {
         this.stock = stock;
         this.imageUrl = imageUrl;
         this.favorites = favorites;
+        this.images = images;
         this.category = category;
+        this.reviews = reviews;
+    }
+
+    public Set<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Category getCategory() {

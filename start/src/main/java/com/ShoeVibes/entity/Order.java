@@ -23,14 +23,34 @@ public class Order {
     private User user;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems;
 
     public Order() {
     }
-    public Order(String address, int totalPrice, LocalDateTime dateTime) {
+
+    public Order(Long id, String address, int totalPrice, LocalDateTime dateTime, User user, List<OrderItem> orderItems) {
+        this.id = id;
         this.address = address;
         this.totalPrice = totalPrice;
         this.dateTime = dateTime;
+        this.user = user;
+        this.orderItems = orderItems;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 
     public String getAddress() {

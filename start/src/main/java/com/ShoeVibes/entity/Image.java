@@ -11,7 +11,7 @@ public class Image {
     private Long id;
 
     private String imageUrl;
-    private String description; // Yeni eklenen description alanı
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

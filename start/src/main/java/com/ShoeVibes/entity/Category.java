@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "categorys")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +14,8 @@ public class Category {
     private String name;
     private String description;
 
-
-    @OneToMany
-    @JoinColumn(name = "category_id")  // mappedBy yerine JoinColumn kullanıldı
+    @OneToMany(mappedBy = "category")
     private List<Product> products;
-
 
     public Category() {
     }

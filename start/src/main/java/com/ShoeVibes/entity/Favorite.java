@@ -21,6 +21,7 @@ public class Favorite {
     private Set<Product> products;
 
     //private boolean isActive = true;
+
     public Favorite() {
     }
 

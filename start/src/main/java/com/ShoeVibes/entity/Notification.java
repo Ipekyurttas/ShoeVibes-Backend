@@ -19,18 +19,18 @@ public class Notification {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User users;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
     public Notification() {
     }
 
-    public Notification(Long id, String message, LocalDateTime createdAt, User users) {
+    public Notification(Long id, String message, LocalDateTime createdAt, User user) {
         this.id = id;
         this.message = message;
         this.createdAt = createdAt;
-        this.users = users;
+        this.user = user;
     }
 
     public Long getId() {
@@ -57,11 +57,11 @@ public class Notification {
         this.createdAt = createdAt;
     }
 
-    public User getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(User users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
