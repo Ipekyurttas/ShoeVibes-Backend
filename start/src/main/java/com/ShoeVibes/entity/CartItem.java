@@ -10,23 +10,15 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-<<<<<<< HEAD
+
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
     private int quantity;
 
-    @ManyToOne
-=======
-    private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-
-    @ManyToOne
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
     @JoinColumn(name = "cart_id")
     private Cart cart;
 

@@ -31,13 +31,10 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Notification> notifications;
 
-<<<<<<< HEAD
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Favorite> favorites;
-=======
-    @OneToMany(mappedBy = "user")
-    private List<Favorite> favorites;
->>>>>>> b8391c76da59ef04a1c31c0327da3760070a4644
+
 
     @OneToOne(mappedBy = "user")
     private Cart cart;
