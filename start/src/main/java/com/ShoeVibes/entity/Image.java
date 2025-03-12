@@ -3,6 +3,7 @@ package com.ShoeVibes.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "images")
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
