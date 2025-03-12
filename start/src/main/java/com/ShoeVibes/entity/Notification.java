@@ -10,6 +10,8 @@ import java.util.Set;
 @Table(name = "notification")
 public class Notification {
 
+    //Burası notifikasyon sınıfıdır....
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
